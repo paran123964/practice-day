@@ -20,3 +20,30 @@ function calculateSum() {
 }
 
 calculateSumButtonElement.addEventListener('click', calculateSum);
+
+//Second example: Highlight link exercise
+
+const highlightLinksButtonElement = document.querySelector('#highlight-links button');
+
+function highlightLinks() {
+    const anchorElements = document.querySelectorAll('#highlight-links a');
+
+    for (const anchorElement of anchorElements) {
+        anchorElement.classList.add('highlight');
+    }
+}
+
+highlightLinksButtonElement.addEventListener('click', highlightLinks);
+
+//Third example: Display user data
+
+const dummyUserData = {
+    firstName: 'Paran',
+    lastName: 'Alcano',
+    age: 25,
+    live: 'Davao City',
+    sex: 'Male',
+    status: 'Single',
+}
+
+const displayUserDataButtonElement = document.querySelector('')
