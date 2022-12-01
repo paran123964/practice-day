@@ -1,49 +1,69 @@
 //First example: Sum numbers
 
-const calculateSumButtonElement = document.querySelector('#calculator button');
-
+const calculateSumButtonElement = document.querySelector("#calculator button");
 
 function calculateSum() {
-    const userNumberInputElement = document.getElementById('user-number') ;
-    const enteredNumber = userNumberInputElement.value;
+  const userNumberInputElement = document.getElementById("user-number");
+  const enteredNumber = userNumberInputElement.value;
 
-    let sumUpToNumber = 0;
+  let sumUpToNumber = 0;
 
-    for (let i = 0; i <= enteredNumber; i++) {
-        sumUpToNumber = sumUpToNumber + i;
-    }
+  for (let i = 0; i <= enteredNumber; i++) {
+    sumUpToNumber = sumUpToNumber + i;
+  }
 
-    const outputResultElement = document.getElementById('calculated-sum');
+  const outputResultElement = document.getElementById("calculated-sum");
 
-    outputResultElement.textContent = sumUpToNumber;
-    outputResultElement.style.display = 'block';
+  outputResultElement.textContent = sumUpToNumber;
+  outputResultElement.style.display = "block";
 }
 
-calculateSumButtonElement.addEventListener('click', calculateSum);
+calculateSumButtonElement.addEventListener("click", calculateSum);
 
 //Second example: Highlight link exercise
 
-const highlightLinksButtonElement = document.querySelector('#highlight-links button');
+const highlightLinksButtonElement = document.querySelector(
+  "#highlight-links button"
+);
 
 function highlightLinks() {
-    const anchorElements = document.querySelectorAll('#highlight-links a');
+  const anchorElements = document.querySelectorAll("#highlight-links a");
 
-    for (const anchorElement of anchorElements) {
-        anchorElement.classList.add('highlight');
-    }
+  for (const anchorElement of anchorElements) {
+    anchorElement.classList.add("highlight");
+  }
 }
 
-highlightLinksButtonElement.addEventListener('click', highlightLinks);
+highlightLinksButtonElement.addEventListener("click", highlightLinks);
 
 //Third example: Display user data
 
 const dummyUserData = {
-    firstName: 'Paran',
-    lastName: 'Alcano',
-    age: 25,
-    live: 'Davao City',
-    sex: 'Male',
-    status: 'Single',
+  firstName: "John Frances",
+  middleName: "Gonzaga",
+  lastName: "Alcano",
+  age: 25,
+  live: "Davao City",
+  Work: "Technician",
+};
+
+const displayUserDataButtonElement =
+  document.querySelector("#user-data button");
+
+function displayUserData() {
+  const outputDataElement = document.getElementById("output-user-data");
+
+  outputDataElement.innerHTML = '';
+
+  for (const propertyName in dummyUserData) {
+    const newUserDataListItemElement = document.createElement("li");
+    const outputText =
+      propertyName.toUpperCase() + ": " + dummyUserData[propertyName];
+    newUserDataListItemElement.textContent = outputText;
+    outputDataElement.append(newUserDataListItemElement);
+  }
 }
 
-const displayUserDataButtonElement = document.querySelector('')
+displayUserDataButtonElement.addEventListener("click", displayUserData);
+
+
