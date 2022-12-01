@@ -66,4 +66,43 @@ function displayUserData() {
 
 displayUserDataButtonElement.addEventListener("click", displayUserData);
 
+//forth example : Statistics - Roll the Dice
 
+const rollDiceButtonElement = document.querySelector('#statistics');
+
+function rollDice() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+function deriveNumberOfDiceRolls() {
+    const targetNumberInputElement = document.getElementById('user-target-number');
+    const diceRollsListElement = document.getElementById('dice-rolls');
+
+    const enteredNumbered = targetNumberInputElement.value;
+    diceRollsListElement.innerHTML = '';
+
+    let hasRollTargetNumber = false;
+    let numberOfRolls = 0;
+
+    while (!hasRollTargetNumber) {
+        const rolledNumber = rollDice();
+        //if (rolledNumber == enteredNumbered) {
+        //    hasRollTargetNumber = true;
+        //}
+        //numberOfRolls = numberOfRolls + 1;
+        numberOfRolls++;
+        const newRollListElement = document.createElement('li');
+        const outputText = 'Roll ' + numberOfRolls + ': ' + rolledNumber;
+        newRollListElement.textContent = outputText;
+        diceRollsListElement.append(newRollListElement);
+        hasRollTargetNumber = rolledNumber == enteredNumbered;
+
+        const outputTotalRollsElement = document.getElementById('output-total-rolls');
+        const outputTargetNumberElement = document.getElementById('output-target-number');
+
+        outputTargetNumberElement.textContent = enteredNumbered;
+        outputTargetNumberElement.textContent = numberOfRolls;
+    }
+}
+
+rollDiceButtonElement.addEventListener('click', deriveNumberOfDiceRolls);
